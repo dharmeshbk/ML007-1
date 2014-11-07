@@ -36,7 +36,7 @@ grad = (1/m)*(X'*(hyp-y)+lambda*with0_theta);
 
 %grad1 = (1/m) * X' *(hyp - y)
 %grad = (1/m) * X' *(hyp - y) + (lambda /m) * theta ;
-
+%% 
 
 % =============================================================
 
