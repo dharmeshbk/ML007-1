@@ -4,7 +4,7 @@ function p = predict(Theta1, Theta2, X)
 %   trained weights of a neural network (Theta1, Theta2)
 
 % Useful values
-m = size(X, 1);
+m = size(X, 1)
 num_labels = size(Theta2, 1);
 
 % You need to return the following variables correctly 
@@ -21,13 +21,31 @@ p = zeros(size(X, 1), 1);
 %       can use max(A, [], 2) to obtain the max for each row.
 %
 
+X_with_bias = [ones(m,1) X] ; %[X,1] ;% Add one bias 1 as column , now vector dimension is 1 by 401
+%size(X_with_bias)
+%Theta1; %% dimension is 25 by 401
+
+a_one = X_with_bias * Theta1';%% Dimension is 1 by 401
+%size(a_one)
 
 
+z_two = sigmoid(a_one);
+%size(z_two)
 
 
+a_two = [ones(size(z_two),1),z_two]; %% Add column for bias 1
+%size(a_two);
 
+%a2 = [ones(size(z2),1) sigmoid(z2)]
 
+z_three = a_two * Theta2';
+%size(z_three)
 
+hyp = sigmoid(z_three);
+
+[predict_max, index_max] = max(hyp, [], 2);
+
+p = index_max
 
 % =========================================================================
 
